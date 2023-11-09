@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>class inherit</title>
+</head>
+<body>
+<h1  style="color:blue;font-size:46px;"> To check Salary go to console<h1>
+	<script>
+
+class Employee {
+  constructor(name, salary) {
+    this.name = name;
+    this.salary = salary;
+  }
+
+  calculateAnnualSalary() {
+    return this.salary * 12;
+  }
+}
+
+
+class Manager extends Employee {
+  constructor(name, salary, department) {
+    super(name, salary);
+    this.department = department;
+  }
+
+  calculateAnnualSalary() {
+
+    const bonus = 0.1 * this.salary;
+    return (this.salary + bonus) * 12;
+  }
+}
+
+const employee1 = new Manager('yoosuf', 60000, 'Sales');
+const employee2 = new Manager('yokesh', 80000, 'Marketing');
+
+
+const emp1AnnualSalary = employee1.calculateAnnualSalary();
+const emp2AnnualSalary = employee2.calculateAnnualSalary();
+
+console.log(`${employee1.department}:${employee1.name} annual salary is RS:${emp1AnnualSalary} `);
+console.log(`${employee2.department}:${employee2.name} annual salary is Rs:${emp2AnnualSalary} `);
+
+	
+	</script>
+</body>
+</html>
